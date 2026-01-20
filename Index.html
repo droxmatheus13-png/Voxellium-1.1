@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Voxellium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-menu" class="menu-container">
+        <h1 class="game-title">VOXELLIUM</h1>
+        
+        <div class="skin-preview">
+            <img id="current-skin" src="https://minecraft.net/images/logos/alex-skin.png" alt="Skin">
+            <button class="btn-small" onclick="openModal('skin-modal')">Trocar Skin</button>
+        </div>
+
+        <nav class="menu-buttons">
+            <button class="btn primary" onclick="alert('Iniciando Mundo...')">JOGAR</button>
+            <button class="btn secondary" onclick="openModal('settings-modal')">CONFIGURAÇÕES</button>
+            <button class="btn exit">SAIR</button>
+        </nav>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <h2>Configurações</h2>
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label>Sensibilidade: <input type="range" min="1" max="100"></label>
+                </div>
+                <div class="setting-item">
+                    <label>Campo de Visão (FOV): <input type="range" min="30" max="110"></label>
+                </div>
+                <div class="setting-item">
+                    <label>Render Distance: <select><option>4 Chunks</option><option>8 Chunks</option></select></label>
+                </div>
+                <div class="setting-item">
+                    <label>Volume: <input type="range"></label>
+                </div>
+                <div class="setting-item">
+                    <label>Inverter Eixo Y: <input type="checkbox"></label>
+                </div>
+            </div>
+            <button class="btn-small" onclick="closeModal('settings-modal')">CONCLUÍDO</button>
+        </div>
+    </div>
+
+    <div id="skin-modal" class="modal">
+        <div class="modal-content">
+            <h2>Selecione sua Skin</h2>
+            <div class="skin-options">
+                <img src="https://minecraft.net/images/logos/steve-skin.png" onclick="changeSkin(this.src)">
+                <img src="https://minecraft.net/images/logos/alex-skin.png" onclick="changeSkin(this.src)">
+                <div class="custom-skin-upload">
+                    <input type="text" id="skin-url" placeholder="URL da Skin (PNG)">
+                    <button onclick="changeSkin(document.getElementById('skin-url').value)">Usar URL</button>
+                </div>
+            </div>
+            <button class="btn-small" onclick="closeModal('skin-modal')">VOLTAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
